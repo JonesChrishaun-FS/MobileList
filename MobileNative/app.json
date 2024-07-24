@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "nativeDemo",
-    "slug": "nativeDemo",
+    "name": "MobileNative",
+    "slug": "MobileNative",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
