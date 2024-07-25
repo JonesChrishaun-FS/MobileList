@@ -10,9 +10,14 @@ import {
   Pressable,
 } from "react-native";
 
-export default function Dashboard({ navigation }) {
+export default function Dashboard({ navigation, route }) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [values, setValues] = useState({
+    title: "",
+    description: "",
+    available_on: "",
+  });
 
   const getMovies = async () => {
     try {
@@ -25,7 +30,7 @@ export default function Dashboard({ navigation }) {
           setData(data);
         });
     } catch (error) {
-      console.error(error);
+      error(error);
     } finally {
       setLoading(false);
     }
@@ -35,10 +40,8 @@ export default function Dashboard({ navigation }) {
     getMovies();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (route.params?.post) {
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
     }
   }, [route.params?.post]);
 
@@ -67,11 +70,12 @@ export default function Dashboard({ navigation }) {
         />
       )}
 
-      <Button title="Main" onPress={() => navigation.navigate("Home")} />
       <Button
-        title="Create post"
-        onPress={() => navigation.navigate("CreatePost")}
+        title="New Movie"
+        onPress={() => navigation.navigate("New Movie")}
       />
+      <Button title="Main" onPress={() => navigation.navigate("Home")} />
+
       <StatusBar style="auto" />
     </View>
   );

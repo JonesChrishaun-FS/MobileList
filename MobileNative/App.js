@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Dashboard from "./pages/Dashboard";
 import Movie from "./pages/Movie";
+import CreateMovie from "./components/CreateMovie";
 
 function HomeScreen({ navigation }) {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Movie" component={Movie} />
+        <Stack.Screen name="New Movie" component={CreateMovie} />
       </Stack.Navigator>
     </NavigationContainer>
   );
